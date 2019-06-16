@@ -10,3 +10,11 @@ cd build
 cmake ..
 make
 ```
+
+Arch Users - Install from the AUR `garfield-git`
+
+## Usage
+
+```bash
+garfield --help
+```
