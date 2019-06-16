@@ -11,3 +11,5 @@ target_include_directories(garfield PUBLIC
 	"lib/cxxopts"
 )
 target_compile_options(garfield PUBLIC -Wall)
+
+install(TARGETS garfield)
