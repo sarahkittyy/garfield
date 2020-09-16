@@ -2,6 +2,22 @@
 #include <iostream>
 #include <string>
 
+const char *GARF = 
+"       .-.,     ,.-.\n"
+" '-.  /:::\\   //:::\\  .-'\n"
+" '-.\\|':':' `\"` ':':'|/.-'\n"
+" `-./`. .-=-. .-=-. .`\\.-`\n"
+"   /=- /     |     \\ -=\\\n"
+"  ;   |      |      |   ;\n"
+"  |=-.|______|______|.-=|\n"
+"  |==  \\  0 /_\\ 0  /  ==|\n"
+"  |=   /'---( )---'\\   =|\n"
+"   \\   \\:   .'.   :/   /\n"
+"    `\\= '--`   `--' =/'\n"
+"      `-=._     _.=-'\n"
+"           `\"\"\"`\n"
+;
+
 int main(int argc, char* argv[])
 {
 	cxxopts::Options program("garfield", "A customizable, easy-to-use garfield emulator.");
@@ -10,6 +26,7 @@ int main(int argc, char* argv[])
 	("h,help", "Display this help message")
 	("t,tuesday", "Tuesday mode")
 	("j,jon", "Jon mode")
+	("g,graphical", "Graphical mode")
 	;
 	// clang-format on
 	// Parse cli args
@@ -35,8 +52,15 @@ int main(int argc, char* argv[])
 		jon_append = ", Jon";
 	}
 
+	//Check if it's graphical mode
+	std::string gpu_buffer = "";
+	if (result.count("graphical") != 0)
+	{
+		gpu_buffer = GARF;
+	}
+
 	//Output the result.
-	std::cout << "I hate " << day_of_the_week << "s" << jon_append << ".\n";
+	std::cout << gpu_buffer << "I hate " << day_of_the_week << "s" << jon_append << ".\n";
 
 	return 0;
 }
